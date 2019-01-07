@@ -68,6 +68,8 @@
   - 指定项目类型(可不选)
   - 设置project name和project location
 
+  ![5.idea界面](images/5.idea界面.PNG)
+
 #### 创建模块(module)
 
 ![1.模块](images/1.模块.PNG)
@@ -89,36 +91,36 @@
 
 - 右击项目 -> model project -> OK
 - 关闭项目 -> 找到项目在计算机上目录 -> 删除
-- 
 
 ## 3.配置IDEA
 
 **Settings**  (ctrl + alt + s)
 
-- ![3.settings设置](images/3.settings设置.PNG)
+![3.settings设置](images/3.settings设置.PNG)
 
 - **主题**   Appearance & Behavior
 
   - Appearance(外观) -> Theme(窗口主题)
 
-- Editor
+- **Editor**
 
-  -   General 
+  - General 
+    **滚轮改变字体**-> Change font size (Zoom) with Ctrl + Mouse Wheel [通过ctrl+鼠标滚轮 改变字体大小]
+    **悬浮提示**     -> Show quick documentation on mouse move Delay(ms):1000 [鼠标悬停1秒显示对应的文档说明
 
-    ​    **悬浮提示** -> Change font size (Zoom) with Ctrl + Mouse Wheel [通过ctrl+鼠标滚轮 改变字体大小]
-
-    ​	     -> Show quick documentation on mouse move Delay(ms):1000 [鼠标悬停1秒显示对应的文档说明
-
-    - **自动导包**    Auto Import -> Insert import on paste:All [自动导包Alt + Entry 快捷键手动导包]
-      ​		-> Add unambiguous imports on the fly			[即时添加明确的导入]
-
-      ​		-> Optimize imports on the fly (for current project)	[即时优化导入（针对当前项目）]
+       - **自动导包**    Auto Import -> Insert import on paste:All [自动导包Alt + Entry 快捷键手动导包]
+        -> Add unambiguous imports on the fly			[勾选，即时添加明确的导入]
+        -> Optimize imports on the fly (for current project)	[勾选，即时优化导入（针对当前项目）]
 
     - **显示行号和分隔符**  Appearance[外貌]    -> show line numbers [显示行号]
 
-      ​		-> show method separatros[显示方法分隔符, 方法间添加一条横线]
+      -> show method separatros[显示方法分隔符, 方法间添加一条横线]
 
-    - **提示忽略大小写**    Code Completion -> Case sensitive completions -> 选为  None
+    - **提示忽略大小写**    Code Completion 
+
+      ​	-> Case sensitive completions -> 选为  None
+
+      或者是 -> Match case [解除勾选]
 
     - **多行显示打开的文件名**  Editor Tabs ->  show tabs in one row -> 去掉选中
 
@@ -128,7 +130,9 @@
 
     ​	 -> **主题** Scheme (主题) [http://www.riaway.com搜索主题下载对应jar包]
 
-    ​	下载好主题后可以File -> import settings导入jar包或者在 Scheme (主题) 设置import scheme
+    ​	下载好主题后可以File -> import settings导入jar包
+
+    或者在 Scheme (主题) 设置import scheme
 
     - **设置注释字体颜色** Language Defaults -> comments
 
@@ -146,6 +150,34 @@
   - File Encodings  (文件编码)
 
     ![4.设置编码UTF-8](images/4.设置编码UTF-8.PNG)
+
+  - Live Templates (设置模板,例: psvm或者main)
+
+    ``````java
+    //常用模板
+    //psvm		main方法
+    public static void main(String[] args){}
+    
+    //sout		输出
+    System.out.println();
+    //sout变形  soutp / soutm / soutv /  xxx.sout
+    System.out.println("args = [" + args + "]");// soutp ： 打印方法形式参数
+    System.out.println("HelloWord.main");	// soutm ： 打印方法名称
+    String name = "张三";
+    System.out.println("name = " + name);	// soutv ： 打印变量
+    name.sout  ---->>>> System.out.println(name); // xxx.sout ： 打印变量
+    
+    //fori		for循环
+    
+    ``````
+
+    或者
+
+  - Editor
+    - General
+      - Postfix conpletion
+
+  ​	
 
 - Build,Execution,Deployment
 
@@ -176,38 +208,39 @@
 | **Shift+ 上下**      | 光标选中           |                                    |
 
 
-| **ctrl+ alt+entry** | 光标无论在哪里，向上插入一空行 |      |
-| ------------------- | ------------------------------ | ---- |
-| **shift+ entry**    | 光标无论在哪里，向下插入一空行 |      |
-| **Ctrl+D**          | 负责这一行代码到下一行         |      |
-| **Ctrl+Y**          | 删除一行                       |      |
+| **ctrl+ alt+entry**  | 光标无论在哪里，向上插入一空行     |      |
+| -------------------- | ---------------------------------- | ---- |
+| **shift+ entry**     | **光标无论在哪里，向下插入一空行** |      |
+| **ctrl+Shift+Enter** | 自动补全分号                       |      |
+| **Ctrl+D**           | **复制这一行代码到下一行**         |      |
+| **Ctrl+Y**           | **删除一行**                       |      |
 
-| **Alt+/**            | 复制上一个单词/ **报错时自动提示**                           |      |
-| -------------------- | ------------------------------------------------------------ | ---- |
-| **Ctrl+/**           | 设置/取消  单行注释  //                                      |      |
-| **Ctrl+Shift+/**     | 设置/取消  多行注释  /**   */                                |      |
-| **Alt+Enter**        | 引入类或提供给你选择的处理方法(万能解错)/ **生成返回值变量** |      |
-| **Alt+/**            | 复制上一个单词/ **报错时自动补全**                           |      |
-| **Ctrl+Z**           | 撤销操作                                                     |      |
-| **Ctrl+Shift+Z**     | 恢复Ctrl+Z撤销的操作                                         |      |
-| **ctrl+Shift+Enter** | 自动补全分号                                                 |      |
-| Ctrl+W               | 选中代码，连续按会有其他效果                                 |      |
-| Alt+Shift+V          | 粘贴板历史                                                   |      |
+| **Alt+/**        | 复制上一个单词/ 报错时自动补全                               |      |
+| ---------------- | ------------------------------------------------------------ | ---- |
+| **Ctrl+/**       | **设置/取消  单行注释  //**                                  |      |
+| **Ctrl+Shift+/** | **设置/取消  多行注释  /*   */**                             |      |
+| **Alt+Enter**    | 引入类或提供给你选择的处理方法(万能解错)/ **生成返回值变量** |      |
+|                  |                                                              |      |
+| **Ctrl+Z**       | **撤销操作**                                                 |      |
+| **Ctrl+Shift+Z** | **恢复Ctrl+Z撤销的操作**                                     |      |
+| **ctrl+Insert**  | **get/set方法**                                              |      |
+| Ctrl+W           | 选中代码，连续按会有其他效果                                 |      |
+| Alt+Shift+V      | 粘贴板历史                                                   |      |
 
 **查找相关的快捷键**
 
-| **trl+F**        | 在本文件查找，可通过方向键移动选择 | 按Esc消失                                                    |
+| **Ctrl+F**       | 在本文件查找，可通过方向键移动选择 | 按Esc消失                                                    |
 | ---------------- | ---------------------------------- | ------------------------------------------------------------ |
 | **Ctrl+Shift+F** | 在制定路径/模块/工程内查找         | 非常常用的一个功能，很多时候你想查找一个内容但是不一定知道它在哪里，这个就很实用 |
 | Ctrl+R           | 在本文件内查找/替换                | 按Esc消失                                                    |
 | Ctrl+N           | 在本工程类查询某个类               |                                                              |
-| Ctrl+Shift+N     | 查询某个类(不限本工程)             | 看源码很实用，比如我想看看jdk里面TreeMap这个类的代码，就可以用这个功能 |
+| Ctrl+Shift+N     | **查询某个类(不限本工程)**         | 看源码很实用，比如我想看看jdk里面TreeMap这个类的代码，就可以用这个功能 |
 
 **查看代码相关的快捷键**
 
 | 快捷键             | 功能                           | 说明                                                       |
 | ------------------ | ------------------------------ | ---------------------------------------------------------- |
-| **Ctrl+H**         | 查看一个类的继承关系           |                                                            |
+| **Ctrl+H**         | **查看一个类的继承关系**       |                                                            |
 | Ctrl+B             | 查看一个类或者变量的申明       |                                                            |
 | **Alt+F7**         | 查找一个属性或方法被谁调用     |                                                            |
 | Alt+上下           | 跳到上/下一个方法(或属性)      |                                                            |
