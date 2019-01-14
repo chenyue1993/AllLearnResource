@@ -155,10 +155,10 @@
 
     ``````java
     //常用模板
-    //psvm		main方法
+    //模板1 : psvm		main方法
     public static void main(String[] args){}
     
-    //sout		输出
+    //模板2 : sout		输出
     System.out.println();
     //sout变形  soutp / soutm / soutv /  xxx.sout
     System.out.println("args = [" + args + "]");// soutp ： 打印方法形式参数
@@ -167,8 +167,36 @@
     System.out.println("name = " + name);	// soutv ： 打印变量
     name.sout  ---->>>> System.out.println(name); // xxx.sout ： 打印变量
     
-    //fori		for循环
+    //模板3 : fori		for循环
+    for (int i = 0; i < arr.length; i++) {}
+    //fori变形	iter  /  itar
+    for (String s : arr) {}	// iter	:  增强for循环
+    for (int i = 0; i < arr.length; i++) {String s = arr[i];}	//  itar  :  普通for循环赋值
     
+    //模板4 : list.for	list的for循环
+    for (int i : list) {}
+    //list.for变形	list.fori  /  list.forr
+    for (int i = 0; i < ints.size(); i++) {}	//list.fori  : 普通for循环
+    for (int i = ints.size() - 1; i >= 0; i--) { }	//list.forr  : 倒叙
+    
+    //模板5 : ifn	  条件判断
+    if (ints == null) {}
+    //ifn变形 inn / xxx.null / xxx.nn
+    if (ints != null) {}// inn  : 条件判断 
+    if (ints == null) {}// xxx.null  : 条件判断 
+    if (ints != null) {}// xxx.nn  : 条件判断 
+    
+    //模板6 : prsf	private static final
+    //psf	public static final
+    //psfi	public static final int
+    //psfs	public static final String
+    
+    //修改和自定义模板
+    修改 :  Live Templates -> other -> psvm 修改为 main
+    修改 :  public static final int $VAR1$ = $VAR2$;	$END$	$VAR1$,使用entry确定光标位置
+    添加模板组 : Template Group    命名为 : custom
+    添加模板   : Live Template	   private String $VAR1$ = $VAR2$;$END$  
+    	No applicable contexts yet. Define  -> 点击Define 选中 Java
     ``````
 
     或者
@@ -244,7 +272,7 @@
 | Ctrl+B             | 查看一个类或者变量的申明       |                                                            |
 | **Alt+F7**         | 查找一个属性或方法被谁调用     |                                                            |
 | Alt+上下           | 跳到上/下一个方法(或属性)      |                                                            |
-| Ctrl+上下          | 上下滑屏但是不移动光标         |                                                            |
+| Ctrl+Shift+u       | 字母大小写                     |                                                            |
 | Alt+左右           | 同时打开多个文件时切换代码视图 |                                                            |
 | **Ctrl+Alt+ 左右** | 返回至上次浏览的位置           | 非常实用，在多个文件代码中遨游的时候能够快速回到想去的位置 |
 | Ctrl+上下          | 光标跳转到第一行或最后一行     |                                                            |
@@ -275,6 +303,21 @@
 | Alt+7   | 打开类结构     |      |
 | Alt+9   | 打开change     |      |
 
+
+
+## 4.创建静态或动态的Project和Module
+
+## 5.版本控制(Git)
+
+- 先下载git的工具
+
+- setting -> version Control -> git 指定安装目录 Path to Git executable: F:\Git\bin\git.exe
+
+- setting -> version Control -> GitHub 添加github账号
+
+- VCS -> checkout from version Control -> git
+
+## 6.断点调试
 debug
 
 　　　　> Show Execution Point (Alt + F10)：如果你的光标在其它行或其它页面，点击这个按钮可跳转到当前代码执行的行。
@@ -292,3 +335,31 @@ debug
 　　　　> Run to Cursor (Alt + F9)：运行到光标处，你可以将光标定位到你需要查看的那一行，然后使用这个功能，代码会运行至光标行，而不需要打断点。
 
 　　　　> Evaluate Expression (Alt + F8)：计算表达式，后面章节详细说明。
+
+## 7.生成javadoc, 清理缓存和索引,关闭自动更新,插件
+
+- javadoc : tools -> generate javadoc -> 
+
+​	output directory -> 目录
+
+​	locale -> zh_CN 语言中文
+
+​	Other command line arguments -> UTF-8 -charset UTF-8 -windowwtitle "test" 
+
+- 清理缓存 file -> invalidate caches/restrat
+
+  会删除本地的localHistory历史记录,可以将在c:/用户/Administrator/.IntelliJIdea2018.2/system/LoaclHistory文件复制拷贝出来,清理缓存后再拷贝进去
+
+- 关闭自动跟新 
+
+  settings -> appearance & Behavior -> System Settings -> Updates -> Automatically check updates 取消勾选
+
+- https://plugin.jetbrains.com/ 官方插件库
+
+  settings -> plugins 
+
+  ​	install jetbrains plugin [从官方插件库安装插件]
+
+  ​	browse repositories[从中央仓库下载]
+
+  ​	install plugin from disk[从本地安装插件]
